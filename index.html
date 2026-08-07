@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ur-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yeh Kitab Jin Roles Ki Training Deti Hai - Explanation</title>
+<style>
+  * { box-sizing: border-box; }
+  html {
+    font-size: 100%;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+  header {
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, #0f4c81, #2a6f97);
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 1.5em;
+  }
+  header p {
+    margin: 0;
+    opacity: 0.9;
+    font-style: italic;
+    font-size: 0.95em;
+  }
+  h2 {
+    color: #0f4c81;
+    border-bottom: 2px solid #d6e4ef;
+    padding-bottom: 8px;
+    margin-top: 40px;
+    font-size: 1.25em;
+  }
+  .para-block {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 14px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border-left: 4px solid #2a6f97;
+  }
+  .para-label {
+    color: #c1121f;
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .para-text {
+    margin: 0;
+    font-size: 1em;
+    color: #222;
+  }
+  .summary-box {
+    background: #eef5fb;
+    border: 1px solid #cfe1ef;
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-top: 20px;
+  }
+  .summary-box ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+  .summary-box li {
+    margin-bottom: 10px;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 40px;
+  }
+  footer a {
+    color: #2a6f97;
+  }
+  @media print {
+    body { background: white; }
+    .para-block { box-shadow: none; border: 1px solid #ddd; }
+  }
+
+  /* Quiz styles */
+  .quiz-intro {
+    background: #fff8e6;
+    border: 1px solid #f0dca0;
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: #6b5200;
+    font-size: 0.95em;
+  }
+  .quiz-question {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border-left: 4px solid #c1121f;
+  }
+  .quiz-q-text {
+    margin: 0 0 12px;
+    font-size: 1em;
+    color: #1a1a2e;
+  }
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .quiz-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    font-size: 0.95em;
+  }
+  .quiz-option:hover {
+    background: #f2f7fc;
+    border-color: #2a6f97;
+  }
+  .quiz-option input {
+    accent-color: #0f4c81;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .quiz-option.correct-answer {
+    background: #e6f7ea;
+    border-color: #2e7d32;
+    font-weight: 600;
+  }
+  .quiz-option.wrong-answer {
+    background: #fdeaea;
+    border-color: #c62828;
+  }
+  .quiz-explain {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #eef5fb;
+    border-radius: 8px;
+    font-size: 0.9em;
+    color: #333;
+  }
+  .quiz-actions {
+    text-align: center;
+    margin: 30px 0 10px;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 12px 28px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0 6px;
+  }
+  .btn-primary {
+    background: #0f4c81;
+    color: white;
+  }
+  .btn-primary:hover { background: #0c3c67; }
+  .btn-secondary {
+    background: #e0e0e0;
+    color: #333;
+  }
+  .btn-secondary:hover { background: #ccc; }
+  .score-banner {
+    text-align: center;
+    font-size: 1.15em;
+    font-weight: 700;
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  .score-banner.pass {
+    background: #e6f7ea;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+  }
+  .score-banner.fail {
+    background: #fdeaea;
+    color: #c62828;
+    border: 1px solid #c62828;
+  }
+
+  /* Responsive / Mobile-friendly */
+  @media (max-width: 600px) {
+    .container {
+      padding: 16px 12px 40px;
+    }
+    header {
+      padding: 20px 14px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 1.3em;
+      line-height: 1.4;
+    }
+    header p {
+      font-size: 0.95em;
+    }
+    h2 {
+      font-size: 1.15em;
+      margin-top: 28px;
+      padding-bottom: 6px;
+    }
+    .para-block {
+      padding: 14px 16px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    .para-label {
+      font-size: 0.95em;
+    }
+    .para-text {
+      font-size: 1em;
+      line-height: 1.65;
+    }
+    .summary-box {
+      padding: 16px 18px;
+      border-radius: 10px;
+    }
+    .summary-box li {
+      font-size: 1em;
+    }
+    .quiz-intro {
+      padding: 14px 16px;
+      font-size: 0.98em;
+    }
+    .quiz-question {
+      padding: 16px 16px;
+      margin: 12px 0;
+      border-radius: 8px;
+    }
+    .quiz-q-text {
+      font-size: 1em;
+    }
+    .quiz-option {
+      padding: 12px 12px;
+      font-size: 0.98em;
+      gap: 8px;
+    }
+    .quiz-explain {
+      font-size: 0.95em;
+      padding: 12px 14px;
+    }
+    .quiz-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 24px 0 10px;
+    }
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      margin: 0;
+      padding: 14px 20px;
+      font-size: 1em;
+    }
+    .score-banner {
+      font-size: 1.05em;
+      padding: 14px 16px;
+    }
+    footer {
+      font-size: 0.85em;
+      padding: 0 10px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    header h1 {
+      font-size: 1.15em;
+    }
+    .quiz-q-text strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Yeh Kitab Jin Roles Ki Training Deti Hai</h1>
+  <p>Chapter Explanation — Roman Urdu (Paragraph-wise)</p>
+</header>
+
+<h2>Shuruaati Hissa</h2>
+
+<div class="para-block"><span class="para-label">Para 1:</span><p class="para-text">Aajkal AI ki duniya mein bohat saare naye job naam ban rahe hain. Lekin ye naam confuse karne wale hain kyun ke zyada tar sab aik hi cheez ke different levels hain. Ye chapter aik map ki tarah hai jo dikhata hai ke ye kitab aapko kis role tak kitna le jayegi.</p></div>
+
+<div class="para-block"><span class="para-label">Para 2:</span><p class="para-text">Ye kitab un naye jobs ko define karti hai jo is liye bani hain kyun ke companies ab AI Workers banati, chalati aur control karti hain. Har role ke saath ek honest baat batayi gayi hai — kitab wahan tak sikhati hai ya nahi. Naam se zyada ye "kitna sikhati hai" wali baat important hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 3:</span><p class="para-text">Har banda pehle "Foundations" se shuru karta hai — ye basic cheezein hain jo har kisi ko chahiye. Isi level par 2 raaste hote hain: Mode 1 (agent ko apna kaam karwane ke liye use karna) aur Mode 2 (khud AI Workers banana). Mode 2 mein hi asal job titles aate hain.</p></div>
+
+<div class="para-block"><span class="para-label">Para 4:</span><p class="para-text">(Note): Agar aapko "Digital FTE", "SKILL.md" jaisi terms samajh nahi aa rahin to pehle Thesis aur Glossary parh lein, ye chapter unko pehle se pata maan kar chalta hai.</p></div>
+
+<h2>Baseline Section</h2>
+
+<div class="para-block"><span class="para-label">Para 5 (Foundations):</span><p class="para-text">Har banda ek jaise shuru karta hai — sirf browser mein, kuch install kiye baghair. Yahan sikhaya jata hai: prompt kaise likhein, khud code likhne ki bajaye AI se code karwana kaise, skills/connectors kya hain, aur AI ke zamane mein sochna kaise hai. Ye koi job title nahi deta, bas basic base hai jispar sab kuch khara hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 6 (Mode 1 Practitioner):</span><p class="para-text">Isi base par aap AI agent se apna kaam karwate hain — sochna, likhna, code karna, plan banana. Ye Claude Code (engineers ke liye) ya Claude Cowork (non-coders ke liye) se sikhaya jata hai. Ye naya job title nahi deta, bas jo job aap ke paas hai usmein aapko behtar bana deta hai.</p></div>
+
+<h2>Generalist Core (4 Main Roles)</h2>
+
+<div class="para-block"><span class="para-label">Para 7:</span><p class="para-text">Ye 4 main roles ek line ki tarah chalte hain: pehle kya banana hai decide hota hai (Outcome Architect), phir banaya jata hai (Digital FTE Builder), phir system design hota hai (AI-Native Company Architect), phir chalaya jata hai (Cloud AI Engineer). Agar yehi kaam client ki company mein ja kar karein to usay Forward Deployed Engineer (FDE) kehte hain.</p></div>
+
+<div class="para-block"><span class="para-label">Para 8 (Outcome Architect):</span><p class="para-text">Kaam 3 hisson mein bata hai: kya karna hai (intent), kaise karna hai (execution), aur check karna (verification). Ye role decide karta hai AI Worker se kya karwana hai aur spec (likhit plan) banata hai. Simple lafzon mein — ye "kya aur kyun" ka jawab deta hai, Builder "kaise" ka jawab deta hai baad mein.</p></div>
+
+<div class="para-block"><span class="para-label">Para 9 (Digital FTE Builder):</span><p class="para-text">Market isay "AI Engineer" kehti hai, ek aam sa naam. Lekin is kitab mein isay "Digital FTE Builder" kehte hain kyun ke ye asal mein wo insaan hai jo AI Worker banata hai — jispar puri company khadi hoti hai. Ye is kitab ka main target student hai — spec likhna, SKILL banana, evaluation, sab yahan sikhaya jata hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 10 (AI-Native Company Architect):</span><p class="para-text">Ye insaan single Worker nahi banata, balke puri company design karta hai — sab Workers, management, aur unko connect karne wala system. Kitab isay pura sikhati hai, aur is par ek 5-quarter wala certification bhi hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 11 (Cloud AI Engineer):</span><p class="para-text">Worker banana adha kaam hai, use theek se chalana doosra half hai. Ye role real cloud servers par sab kuch deploy aur run karta hai (jaise Azure, Kubernetes). Yahan prototype se asal working company banti hai.</p></div>
+
+<h2>2 Special Roles</h2>
+
+<div class="para-block"><span class="para-label">Para 12 (Subject Matter Expert):</span><p class="para-text">Ye ek accountant, lawyer, ya koi bhi expert ho sakta hai jo apna knowledge/experience SKILL.md file mein likh deta hai, taake AI Worker usay use kar sake. Market is role ko often bhool jati hai kyun ke wo sochti hai AI sirf engineers ka kaam hai. Lekin ye kitab isay bhi ek zaroori skill maanti hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 13 (FDE — kya karta hai):</span><p class="para-text">Normal engineer office mein baith kar product banata hai, customer se milta bhi nahi. FDE ka ulta hota hai — wo khud customer ke pass jata hai, unki asal problem dekhta hai, aur wahin on-site solution banata hai. Sirf demo nahi, asal chalta hua software.</p></div>
+
+<div class="para-block"><span class="para-label">Para 14 (Doctor misaal):</span><p class="para-text">Jaise ek doctor door se files dekh kar advice deta hai, aur doosra khud room mein baith kar patient ko check karta hai — FDE wo doosra wala doctor hai jo khud maujood hokar kaam karta hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 15 (History):</span><p class="para-text">Palantir company ne sabse pehle 2010s mein ye role banaya tha (naam tha "Deltas"). Unke customers (governments) ko aise logon ki zaroorat thi jo khud on-site aa kar unke masle hal karein.</p></div>
+
+<div class="para-block"><span class="para-label">Para 16 (Farq):</span><p class="para-text">Normal developer ek feature banata hai jo sab customers ko milta hai. FDE ek hi customer ke liye jo bhi chahiye wo sab banata hai. Ye kaam bilkul startup ke founder jaisa hota hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 17 (FDE vs Solutions Architect):</span><p class="para-text">Solutions Architect sirf salah deta hai aur demo banata hai — deal hone ke baad uska kaam khatam. FDE wahan se shuru hota hai — customer ke real data par asal software banata hai aur tab tak rehta hai jab tak faida na mile.</p></div>
+
+<div class="para-block"><span class="para-label">Para 18 (John Deere Example):</span><p class="para-text">OpenAI ne John Deere (ek purani farming company) ke saath mil kar kaam kiya. Har farmer ke data se AI ne bataya kitni kam dawa (chemical) chahiye. Result: 70% kam chemical use hua, aur customers ka engagement 6 guna badh gaya.</p></div>
+
+<div class="para-block"><span class="para-label">Para 19 (Kyun sab FDE chahte hain):</span><p class="para-text">FDE jobs 2025 mein 800% badh gayi hain. Salesforce aur OpenAI ne bhi apni teams banayi hain. Wajah ye hai ke 95% AI projects fail ho jate hain kyun ke wo company ke real messy system mein fit nahi hote. FDE isi problem ko solve karta hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 20 (Vendor lock-in problem):</span><p class="para-text">Masla ye hai ke har company ka FDE sirf usi company ke tools use karta hai (jaise Palantir ka FDE sirf Palantir use karega). Baad mein customer chahe to bhi doosri company switch nahi kar sakta — jaise ek plumber jo sirf ek hi brand ki pipe lagata ho.</p></div>
+
+<div class="para-block"><span class="para-label">Para 21 (Ye kitab kya sikhati hai):</span><p class="para-text">Ye kitab aisa FDE banati hai jo kisi bhi company ke tools se bandha na ho — vendor-neutral. Aap chahen to koi bhi behtar tool aane par switch kar sakte hain. Farak sirf itna hai ke normal FDE company free deti hai (kyun ke wo lock-in se kamati hai), lekin ye vendor-neutral FDE ko client khud pay karta hai — badle mein azadi milti hai.</p></div>
+
+<h2>Connector aur Plugin Engineer</h2>
+
+<div class="para-block"><span class="para-label">Para 22:</span><p class="para-text">Worker banane se pehle ek aur zaroori kaam hai — wo tools banana jo AI agent use kar sake. Market isay 5 alag naam deti hai lekin ye asal mein ek hi kaam hai: Connector (chat apps jaise claude.ai ke liye tool banana) aur Plugin (coding agents jaise Claude Code ke liye tool banana). Dono ke peeche ek hi cheez hoti hai: MCP server. Isi liye ye dono kitab mein saath sikhaye jate hain.</p></div>
+
+<h2>Supporting Roles</h2>
+
+<div class="para-block"><span class="para-label">Para 23 (Intro):</span><p class="para-text">Har team ko aise log chahiye jo kaam check karein, rules banayein, aur zimmedari lein. Neeche wale 3 roles yehi karte hain.</p></div>
+
+<div class="para-block"><span class="para-label">Para 24 (Evals Engineer):</span><p class="para-text">Jaise gaari ko crash-test kiye baghair market mein nahi bhejte, waise AI Worker ko bhi live jane se pehle test karna zaroori hai — sahi jawab deta hai ya nahi, galat cheez par acha fail hota hai ya nahi. Ye har chapter mein sikhaya jata hai, akhri mein add nahi kiya jata.</p></div>
+
+<div class="para-block"><span class="para-label">Para 25 (Governance Officer):</span><p class="para-text">Jaise company mein har employee ki limit hoti hai (junior sirf $500 tak approve kar sakta hai), waise AI Worker ki bhi limits honi chahiye. Ye role decide karta hai AI khud kya kar sakta hai aur kab insaan ki ijazat chahiye. Ye laws (jaise privacy rules) ko bhi dekhta hai.</p></div>
+
+<div class="para-block"><span class="para-label">Para 26 (Supervisor):</span><p class="para-text">Jab AI Worker koi kaam kare (jaise contract banaye), to kisi insaan ko uski zimmedari leni hoti hai. Ye Supervisor hai — jo work check karta hai aur jiska naam responsibility par hota hai, jaise shift manager team ko dekhta hai.</p></div>
+
+<h2>Jahan Kitab Rukti Hai (Scope Se Bahar)</h2>
+
+<div class="para-block"><span class="para-label">Para 27 (LLMOps Engineer):</span><p class="para-text">Model ko fine-tune karna sikhaya jata hai, lekin sirf tab jab baaki sab tareeqe (prompting waghera) kaam na karein — ye last option hai. Lekin naya AI model scratch se banana is kitab mein nahi sikhaya jata.</p></div>
+
+<div class="para-block"><span class="para-label">Para 28 (Harness Engineer):</span><p class="para-text">"Harness" wo system hai jo agent ko chalata hai (jaise OpenAI Agents SDK). Kitab aapko ye systems use karna sikhati hai, lekin khud aisa naya system banana nahi sikhati.</p></div>
+
+<div class="para-block"><span class="para-label">Para 29 (AI Data Engineer):</span><p class="para-text">Kitab sirf wo data layer sikhati hai jise AI directly read karta hai (jaise Postgres, MCP). Normal big data/warehouse engineering is kitab ka focus nahi hai.</p></div>
+
+<h2>Closing Line</h2>
+
+<div class="para-block"><span class="para-label">Para 30:</span><p class="para-text">Sab roles ka pattern hi asli baat hai — AI ka kaam bohat saare roles mein bant gaya hai: Worker banana, unko chalana/control karna, aur unko sikhana. Is map ka maqsad ye hai ke aap dekhen abhi aap kahan khade hain, aur ye kitab aapko wahan se kitna aage le jati hai.</p></div>
+
+<div class="summary-box">
+  <h2 style="margin-top:0; border:none;">End Summary (Aik Nazar Mein)</h2>
+  <ul>
+    <li>Sab ka base: Foundations + Mode 1 Practitioner (title nahi, proficiency)</li>
+    <li>Core 4-role pipeline: Outcome Architect &rarr; Digital FTE Builder (main graduate) &rarr; AI-Native Company Architect &rarr; Cloud AI Engineer</li>
+    <li>Client mein embed karo to yehi pipeline Forward Deployed Engineer (FDE) banta hai &mdash; vendor-neutral training is kitab ki khaasiyat hai</li>
+    <li>2 unique roles: Subject Matter Expert as Skill Author + FDE (koi aur train nahi karta)</li>
+    <li>Connector/Plugin Engineer: MCP server based, do hosts (chat apps + coding agents) extend karta hai</li>
+    <li>3 Supporting roles: Evals Engineer (testing), Governance Officer (rules), Supervisor (accountability)</li>
+    <li>3 roles jo scope se bahar hain: LLMOps (model building), Harness Engineer (runtime building), AI Data Engineer (general data eng)</li>
+  </ul>
+</div>
+
+<div id="quiz-section">
+  <h2 style="margin-top:50px;">Quiz — 25 Real-World Scenario Questions</h2>
+  <p class="quiz-intro">Ye quiz seedhi seedhi definitions nahi poochta — har sawal ek real-world situation deta hai, aap ko sochna hoga ke kaun sa role/concept us par apply hota hai. Sab 25 sawal attempt karein phir "Quiz Submit Karein" dabayein.</p>
+
+  <div id="score-banner" class="score-banner" style="display:none;"></div>
+
+  <div id="quiz-questions"></div>
+
+  <div class="quiz-actions">
+    <button id="submitQuizBtn" class="btn-primary">Quiz Submit Karein</button>
+    <button id="retakeQuizBtn" class="btn-secondary" style="display:none;">Dobara Quiz Lein</button>
+  </div>
+</div>
+
+<footer>
+  Source: <a href="https://agentfactory.panaversity.org/roman/docs/roles-this-book-trains" target="_blank">agentfactory.panaversity.org</a>
+</footer>
+
+</div>
+
+<script>
+const quizData = [
+  {
+    q: "Aik insurance company mein AI agent claims process karta hai. Aik claim $50,000 se upar hai aur pattern thoda ajeeb hai. Company chahti hai ke aisi situation mein AI khud decide na kare balke ruk kar kisi insaan ko dikhaye. Ye rule (kab AI rukay, kab na rukay) sabse pehle kaun likhta/banata hai?",
+    options: ["Digital FTE Builder", "AI Governance Officer", "Digital FTE Supervisor", "Evals Engineer"],
+    correct: 1,
+    explain: "Governance Officer company-level rules banata hai ke AI kya khud decide kar sakta hai aur kab human approval chahiye — jaise bank mein loan approval limits."
+  },
+  {
+    q: "Wahi claim jab AI ne flag kar ke insaan ke pass bheji, ab woh insaan use review kar ke final decision leta hai aur uska naam audit trail mein hota hai. Ye kaun sa role hai?",
+    options: ["Outcome Architect", "Digital FTE Supervisor", "AI-Native Company Architect", "Governance Officer"],
+    correct: 1,
+    explain: "Supervisor woh human hai jo day-to-day AI ka output check/approve karta hai aur jiska naam accountability ke liye audit trail mein hota hai."
+  },
+  {
+    q: "Aik startup ka founder kehta hai: 'Mujhe pehle ye pata karna hai ke hamara AI Worker ASAL mein kya achieve karega aur 'sahi jawab' ka matlab kya hoga, code baad mein.' Ye founder is waqt kaun sa kaam kar raha hai?",
+    options: ["Digital FTE Builder ka kaam", "Cloud AI Engineer ka kaam", "Outcome Architect ka kaam", "Harness Engineer ka kaam"],
+    correct: 2,
+    explain: "Intent define karna, spec likhna, aur 'correct' ka matlab set karna — ye sab Outcome Architect ka kaam hai, execution (kaise) se pehle."
+  },
+  {
+    q: "Aik bank apna poora AI-based lending system chalati hai: Workers jo applications process karte hain, management layer jo unhe control karta hai, aur ek nervous system jo sab ke darmiyan events pass karta hai. Ye poora enterprise-level system real Azure infrastructure par 24/7 chalta rehta hai aur scale hota hai. Is system ko din-raat chalane/scale karne wala kaun hai?",
+    options: ["AI-Native Company Architect", "Cloud AI Engineer", "Outcome Architect", "Digital FTE Builder"],
+    correct: 1,
+    explain: "Architect design karta hai; Cloud AI Engineer usay real cloud infra (Azure Container Apps, Kubernetes, Dapr) par actually deploy aur operate karta hai."
+  },
+  {
+    q: "Aik chartered accountant apna 20 saal ka tax-filing ka experience aur judgment ek SKILL.md file mein likh kar AI Worker ko de deta hai taake Worker uske jaisa sochay. Ye accountant kaun sa role play kar raha hai?",
+    options: ["AI Governance Officer", "Subject Matter Expert as Skill Author", "Digital FTE Supervisor", "Evals Engineer"],
+    correct: 1,
+    explain: "Domain expert jo apna judgment SKILL.md mein encode karta hai, wahi Subject Matter Expert as Skill Author hai — market mein ye role often miss hota hai."
+  },
+  {
+    q: "Aik AI company ka engineer client (jaise ek hospital) ke real office mein 6 mahine ke liye ja kar baithta hai, unke actual data par production software banata hai, aur tab tak wahin rehta hai jab tak hospital ko real value na mil jaye. Ye kaun hai?",
+    options: ["Solutions Architect", "Forward Deployed Engineer (FDE)", "Cloud AI Engineer", "AI Data Engineer"],
+    correct: 1,
+    explain: "FDE customer ki jagah embed ho kar real production software banata hai — demo nahi, working solution, jab tak value na mile."
+  },
+  {
+    q: "Farq batayein: Aik banda sirf whiteboard par solution design karta hai, demo deta hai, aur deal close hote hi chala jata hai. Ye kaun hai?",
+    options: ["Forward Deployed Engineer", "Solutions Architect", "AI-Native Company Architect", "Digital FTE Builder"],
+    correct: 1,
+    explain: "Solutions Architect advise karta hai aur deal close hone tak involved rehta hai; FDE wahan se aage production tak carry karta hai."
+  },
+  {
+    q: "Aik client kehta hai: 'Mujhe aisa engineer chahiye jo hamari company mein aa kar solution banaye, lekin agar kal koi behtar AI model aa jaye to hum bina kisi masle ke switch kar sakein, kisi ek company ke tools mein phansna nahi chahte.' Is client ko kaun sa FDE chahiye?",
+    options: ["Vendor-specific FDE (jaise Palantir ka apna FDE)", "Vendor-neutral FDE", "In-house Solutions Architect", "Harness Engineer"],
+    correct: 1,
+    explain: "Vendor-neutral FDE kisi bhi ek company ke stack se bandha nahi hota — client ko switching ki azadi milti hai, jo isi kitab ka focus hai."
+  },
+  {
+    q: "Aik company apna naya AI chatbot claude.ai jaisi platform par ship karna chahti hai jise koi bhi user ek URL paste karke apni chat app mein add kar sake, jisme login/sign-in bhi ho. Ye kis role ka kaam hai?",
+    options: ["Plugin Engineer (coding agent extend karna)", "Connector Engineer (chat app extend karna)", "Cloud AI Engineer", "AI Data Engineer"],
+    correct: 1,
+    explain: "Connector-native app end-user chat apps (claude.ai) ko remote MCP server ke zariye extend karti hai, real sign-in ke saath."
+  },
+  {
+    q: "Doosri company chahti hai ke unke developers Claude Code mein hi skills, subagents, aur hooks ek install ke zariye mil jayein taake har coder same rules follow kare. Ye kis role ka kaam hai?",
+    options: ["Connector Engineer", "Plugin Engineer", "Harness Engineer", "LLMOps Engineer"],
+    correct: 1,
+    explain: "Plugin coding agents (Claude Code, OpenCode) ko extend karta hai — skills, subagents, hooks, MCP servers ek install ke peeche."
+  },
+  {
+    q: "Aik naya AI Worker launch se pehle team usay hazaron test-cases par chalati hai: kya woh sahi jawab deta hai? Kya woh anjaan situation mein gracefully fail karta hai? Ye kaam kis role ka hai?",
+    options: ["Digital FTE Supervisor", "Evals Engineer", "AI Governance Officer", "AI Data Engineer"],
+    correct: 1,
+    explain: "Evals Engineer Worker ko live jane se pehle 'crash-test' karta hai, jaise car ko crash-test kiye baghair release nahin karte."
+  },
+  {
+    q: "Aik health-tech company apna AI Worker EU mein deploy karna chahti hai jahan data residency laws sakht hain. Kaun ye decide karta hai ke Worker in laws ke mutabiq kya kar sakta hai aur kya nahi?",
+    options: ["Cloud AI Engineer", "AI Governance Officer", "Evals Engineer", "Digital FTE Builder"],
+    correct: 1,
+    explain: "Governance Officer regulations (jaise data residency, privacy laws) ko rules mein map karta hai — jurisdiction-specific inputs client supply karta hai."
+  },
+  {
+    q: "Aik AI model ka jawab kaafi acha hai lekin thoda inconsistent — team sochti hai fine-tuning karein. Kitab is baray mein kya kehti hai?",
+    options: ["Fine-tuning hamesha pehla option honi chahiye", "Fine-tuning last resort hai, pehle prompting/context/tools try karo", "Fine-tuning kabhi nahi karni chahiye", "Fine-tuning sirf foundation model ke liye hai"],
+    correct: 1,
+    explain: "Fine-tuning aapko ek model snapshot se bandh deti hai aur flexibility ki cost lagati hai — is liye last resort, default nahin."
+  },
+  {
+    q: "Aik developer OpenAI Agents SDK ko efficiently use karta hai, uska agent loop samajhta hai, aur kisi bhi runtime ke darmiyan portable rehta hai. Lekin woh khud naya agent runtime nahi banata. Ye kaun sa role hai?",
+    options: ["LLMOps Engineer", "Harness Engineer", "AI Data Engineer", "Connector Engineer"],
+    correct: 1,
+    explain: "Harness Engineer maujooda runtimes ko fluently *use* karta hai; runtime khud *build* karna is role ka kaam nahin."
+  },
+  {
+    q: "Ek company apne agent ke liye Postgres aur pgvector setup kar rahi hai taake agent seedha usi data ko read kar sake jo usay chahiye. Ye kis role ka focus hai?",
+    options: ["AI Data Engineer (agent-facing layer)", "Classic Data Warehouse Engineer", "Cloud AI Engineer", "LLMOps Engineer"],
+    correct: 0,
+    explain: "AI Data Engineer agent-facing data layer (Postgres, pgvector, MCP) par focus karta hai — general warehouse engineering adjacent hai, central nahin."
+  },
+  {
+    q: "Aik naya intern Claude Cowork use kar ke apni marketing report tez likhta hai. Kya ye intern ko koi naya 'job title' deta hai?",
+    options: ["Haan, ab woh 'AI Engineer' ban gaya", "Nahi, ye Mode 1 hai — sirf proficiency, title nahin", "Haan, ab woh 'Digital FTE Builder' hai", "Nahi, ye galat tool use kar raha hai"],
+    correct: 1,
+    explain: "Mode 1 general agent se apna kaam tez karna hai — har reader ko chahiye, lekin naya title nahin deta, bas mojooda kaam mein behtar banata hai."
+  },
+  {
+    q: "Farming company John Deere ke example mein OpenAI team ne kya achieve kiya jab unhon ne on-site embed ho kar kaam kiya?",
+    options: ["Sirf ek demo banaya jo kabhi deploy nahin hua", "Chemical use mein ~70% kami aur engagement 6x barhi", "Sirf ek proposal document diya", "Product roadmap follow ki, deadline important nahin thi"],
+    correct: 1,
+    explain: "Har farmer ke data se AI recommendations bani jinse chemical use ~70% kam hua aur customer engagement chhe guna barh gayi — real production result."
+  },
+  {
+    q: "Aik chhoti si e-commerce company sirf 1 developer rakhti hai jo poora AI Worker khud spec se le kar deploy tak banata hai — spec-driven dev, SKILL.md, agent architecture, evaluation, sab kuch. Ye developer kis kitab ka 'primary graduate' hai?",
+    options: ["Outcome Architect", "Digital FTE Builder", "AI Governance Officer", "AI Data Engineer"],
+    correct: 1,
+    explain: "Digital FTE Builder full spine train karta hai (spec, SKILL.md, architecture, evals, oversight, deployment) — kitab ka primary target graduate."
+  },
+  {
+    q: "Kaun sa kaam is kitab ke scope se poori tarah bahar hai — ye kabhi nahin sikhaya jata?",
+    options: ["Fine-tuning ek model ko", "MCP server banana", "Foundation model scratch se pre-train karna", "SKILL.md likhna"],
+    correct: 2,
+    explain: "Foundation model scratch se pre-train karna hard stop hai — ye capability commoditize ho rahi hai aur scope se poori tarah bahar hai."
+  },
+  {
+    q: "Ek FDE candidate se poocha jata hai: 'Kya aap production mein cheez ko waqai kaam karwane ke liye accountable hain, ya sirf product ko explain/prove karne ke liye?' Agar jawab pehla ho, to woh kis role ke qareeb hai?",
+    options: ["Solutions Architect ke qareeb", "FDE ke qareeb", "Governance Officer ke qareeb", "Evals Engineer ke qareeb"],
+    correct: 1,
+    explain: "Simple test: production mein waqai function karwane ki accountability FDE ki nishani hai; prove/explain karna Solutions Architect ki."
+  },
+  {
+    q: "Ek company apna AI-Native enterprise design kar rahi hai: Two-Layer Model, management layer, workforce, aur nervous system sab plan kar rahi hai — abhi run nahin kar rahi, sirf design. Ye kaun sa role hai?",
+    options: ["Cloud AI Engineer", "AI-Native Company Architect", "Digital FTE Builder", "Digital FTE Supervisor"],
+    correct: 1,
+    explain: "Architect poori enterprise design karta hai (Agent Factory ka process practice karta hai); Cloud AI Engineer baad mein usay run karta hai."
+  },
+  {
+    q: "Ek vendor (jaise Salesforce) apne FDE ko client ko FREE deta hai. Kitab is baray mein kya explain karti hai — ye free kyun hai?",
+    options: ["Kyun ke unke FDEs kam mahir hote hain", "Kyun ke vendor lock-in se wapas kamata hai", "Kyun ke ye sirf marketing gimmick hai", "Kyun ke unhein sarkar subsidize karti hai"],
+    correct: 1,
+    explain: "Vendor apna FDE subsidize karta hai kyun ke woh baad mein lock-in (client ka sirf unhi ke platform par depend hona) se kamata hai."
+  },
+  {
+    q: "Aik retail company apne agents ke liye connector aur plugin dono banati hai. In dono ke neeche, kitab ke mutabiq, common artifact kya hota hai?",
+    options: ["Docker container", "MCP server", "Vector database", "REST API only"],
+    correct: 1,
+    explain: "Connector aur plugin dono ke base mein wahi cheez hoti hai: MCP server — isi liye kitab dono ko saath sikhati hai."
+  },
+  {
+    q: "Ek bank ka junior accountant sirf $500 tak expense approve kar sakta hai, us se zyada manager ki signature chahiye. Iski tarah AI Worker ke liye bhi limits set karne wala kaun hai?",
+    options: ["Digital FTE Supervisor", "AI Governance Officer", "Outcome Architect", "Cloud AI Engineer"],
+    correct: 1,
+    explain: "Governance Officer company-level par decide karta hai AI khud kya kar sakta hai aur kahan human approval lazmi hai — bilkul employee limits jaisa."
+  },
+  {
+    q: "MIT ki 2025 study ke mutabiq, kitne percent enterprise AI pilots measurable return nahin dikhate, aur kitab ke mutabiq iski asal wajah kya hai?",
+    options: ["50%; AI models weak hain", "95%; AI ko company ke messy real systems mein fit karna hard hai", "30%; budget ki kami", "95%; employees AI use nahi karte"],
+    correct: 1,
+    explain: "MIT Project NANDA study: ~95% pilots fail hote hain, na is liye ke AI kaam nahin karta, balke real-world messy systems mein fit karna mushkil hai — isi gap ko FDE fill karta hai."
+  }
+];
+
+let userAnswers = new Array(quizData.length).fill(null);
+
+function renderQuiz() {
+  const container = document.getElementById('quiz-questions');
+  container.innerHTML = '';
+  quizData.forEach((item, idx) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'quiz-question';
+    qDiv.id = 'q-block-' + idx;
+    let optionsHtml = '';
+    item.options.forEach((opt, oIdx) => {
+      optionsHtml += `
+        <label class="quiz-option" id="opt-${idx}-${oIdx}">
+          <input type="radio" name="q${idx}" value="${oIdx}" onchange="selectAnswer(${idx}, ${oIdx})">
+          <span>${opt}</span>
+        </label>`;
+    });
+    qDiv.innerHTML = `
+      <p class="quiz-q-text"><strong>Sawal ${idx + 1}:</strong> ${item.q}</p>
+      <div class="quiz-options">${optionsHtml}</div>
+      <p class="quiz-explain" id="explain-${idx}" style="display:none;"></p>
+    `;
+    container.appendChild(qDiv);
+  });
+}
+
+function selectAnswer(qIdx, oIdx) {
+  userAnswers[qIdx] = oIdx;
+}
+
+function submitQuiz() {
+  let score = 0;
+  let unanswered = 0;
+  quizData.forEach((item, idx) => {
+    const selected = userAnswers[idx];
+    if (selected === null) unanswered++;
+    for (let o = 0; o < item.options.length; o++) {
+      const label = document.getElementById(`opt-${idx}-${o}`);
+      label.querySelector('input').disabled = true;
+      if (o === item.correct) {
+        label.classList.add('correct-answer');
+      } else if (o === selected && selected !== item.correct) {
+        label.classList.add('wrong-answer');
+      }
+    }
+    if (selected === item.correct) score++;
+    const explainEl = document.getElementById(`explain-${idx}`);
+    explainEl.textContent = 'Wazahat: ' + item.explain;
+    explainEl.style.display = 'block';
+  });
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const banner = document.getElementById('score-banner');
+  banner.style.display = 'block';
+  let msg = `Aapka Score: ${score} / ${quizData.length} (${percent}%)`;
+  if (unanswered > 0) msg += ` — ${unanswered} sawal chhoray gaye the.`;
+  if (percent >= 70) {
+    banner.className = 'score-banner pass';
+    msg += ' — Mubarak ho, aap graduate hone ke qabil hain! 🎉';
+  } else {
+    banner.className = 'score-banner fail';
+    msg += ' — 70% se kam hai, chapter dobara review karein.';
+  }
+  banner.textContent = msg;
+  banner.scrollIntoView({behavior:'smooth', block:'start'});
+
+  document.getElementById('submitQuizBtn').style.display = 'none';
+  document.getElementById('retakeQuizBtn').style.display = 'inline-block';
+}
+
+function retakeQuiz() {
+  userAnswers = new Array(quizData.length).fill(null);
+  document.getElementById('score-banner').style.display = 'none';
+  document.getElementById('submitQuizBtn').style.display = 'inline-block';
+  document.getElementById('retakeQuizBtn').style.display = 'none';
+  renderQuiz();
+  document.getElementById('quiz-section').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+document.getElementById('submitQuizBtn').addEventListener('click', submitQuiz);
+document.getElementById('retakeQuizBtn').addEventListener('click', retakeQuiz);
+renderQuiz();
+</script>
+
+</body>
+</html>
